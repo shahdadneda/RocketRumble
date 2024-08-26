@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     }
 
     void ProcessThrust(){
-        if(Input.GetKey(KeyCode.Space)){
+        if(Input.touchCount > 0){
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
         }
 
@@ -42,7 +42,9 @@ public class Movement : MonoBehaviour
     }
     private void ApplyRotation(float rotationThisFrame)
     {
+        rb.freezeRotation = true; // freezing rotation so we can manually
         transform.Rotate(Vector3.forward * rotationThisFrame * sideThrust * Time.deltaTime);
+        rb.freezeRotation = false; // unfreezing it so that physics sytem takes over
     }
 
 }
