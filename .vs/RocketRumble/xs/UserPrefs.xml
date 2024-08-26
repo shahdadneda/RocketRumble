@@ -1,14 +1,17 @@
 ﻿<Properties StartupConfiguration="{26B6E4DC-273E-6ABF-3BF0-4AEC08A5F16E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Movement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CollisionHandler.cs">
     <Files>
-      <File FileName="Assets/Scripts/Movement.cs" Line="25" Column="41" />
+      <File FileName="Assets/Scripts/Movement.cs" Line="34" Column="15" />
+      <File FileName="Assets/Scripts/CollisionHandler.cs" Line="12" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RocketRumble" expanded="True">
-            <Node name="Assets" expanded="True" selected="True">
-              <Node name="Scripts" expanded="True" />
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="CollisionHandler.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
