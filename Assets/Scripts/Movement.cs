@@ -35,11 +35,6 @@ public class Movement : MonoBehaviour
             audioSource.Stop();
         }
 
-        
-        
-
-        
-
     }
     
     void ProcessRotation(){
