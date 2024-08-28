@@ -7,22 +7,41 @@ public class CollisionHandler : MonoBehaviour
 {
     void OnCollisionEnter(Collision other)
     {
+        
         switch (other.gameObject.tag)
         {
             case "Friendly":
                 Debug.Log("This is Friendly");
                 break;
             case "Finish":
-                loadNextLevel();
+                LevelUpDelay();
                 break;
             case "Fuel":
                 Debug.Log("You are fueling up");
                 break;
             default:
-                ReloadLevel();
+                StartCrashSquence();
                 break;
 
         }
+    }
+
+    float deathDelayTime = 1f;
+    float levelDelayTime = 0.5f;
+
+    void LevelUpDelay()
+    {
+        //Maybe add satisfying sound for level up in future?
+        GetComponent<Movement>().enabled = false;
+        Invoke("loadNextLevel", levelDelayTime);
+    }
+
+    void StartCrashSquence()
+    {
+        //add sound for death and particles
+        GetComponent<Movement>().enabled = false;
+        Invoke("ReloadLevel", deathDelayTime);
+
     }
    
     void loadNextLevel()
