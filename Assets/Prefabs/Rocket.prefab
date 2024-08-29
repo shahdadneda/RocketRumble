@@ -123,6 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sideThrust: 12.4
   mainThrust: 1000
+  engineSound: {fileID: 8300000, guid: 88de132f39fda420a8052f02becf514d, type: 3}
+  collisionHandler: {fileID: 4412681013983778438}
 --- !u!54 &6232967446552391364
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -160,7 +162,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 88de132f39fda420a8052f02becf514d, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -258,3 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84adb4d43406946d9832b5c351edfc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCrashed: 0
+  hasWon: 0
+  crashSound: {fileID: 8300000, guid: fdc1458d45e8d430b95ad62173588320, type: 3}
+  levelUpSound: {fileID: 8300000, guid: a10cf2aa84d8e455a9ba3058ca39299d, type: 3}

@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+    private void Update()
+    {
+        //print("in collisison handler: has won: " + hasWon + " has crashed " + hasCrashed);
+
+    }
     void OnCollisionEnter(Collision other)
     {
         
@@ -16,9 +25,6 @@ public class CollisionHandler : MonoBehaviour
             case "Finish":
                 LevelUpDelay();
                 break;
-            case "Fuel":
-                Debug.Log("You are fueling up");
-                break;
             default:
                 StartCrashSquence();
                 break;
@@ -27,20 +33,48 @@ public class CollisionHandler : MonoBehaviour
     }
 
     float deathDelayTime = 1f;
-    float levelDelayTime = 0.5f;
+    float levelDelayTime = 1.5f;
+    public bool hasCrashed = false;
+    public bool hasWon = false;
+    private AudioSource audioSource; 
+    [SerializeField] private AudioClip crashSound;
+    [SerializeField] private AudioClip levelUpSound;
 
     void LevelUpDelay()
     {
         //Maybe add satisfying sound for level up in future?
-        GetComponent<Movement>().enabled = false;
-        Invoke("loadNextLevel", levelDelayTime);
+        if (!hasCrashed && !hasWon)
+        {
+            hasWon = true;
+            //GetComponent<Movement>().enabled = false;
+            Invoke("loadNextLevel", levelDelayTime);
+            //audioSource.PlayOneShot(levelUpSound);
+            audioSource.clip = levelUpSound;
+            audioSource.loop = false;
+            audioSource.Play();
+        }
+       
+
+           
     }
 
     void StartCrashSquence()
     {
         //add sound for death and particles
-        GetComponent<Movement>().enabled = false;
-        Invoke("ReloadLevel", deathDelayTime);
+        //fix the sound issue where it continues playing
+        if (!hasWon && !hasCrashed)
+        {
+            hasCrashed = true;
+            //GetComponent<Movement>().enabled = false;
+            Invoke("ReloadLevel", deathDelayTime);
+            audioSource.clip = crashSound;
+            audioSource.loop = false;
+            audioSource.Play();
+            print("playing oof sound");
+            //audioSource.PlayOneShot(crashSound);
+        }
+        
+        
 
     }
    
