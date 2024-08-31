@@ -40,9 +40,11 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] private AudioClip crashSound;
     [SerializeField] private AudioClip levelUpSound;
 
+    [SerializeField] private ParticleSystem successParticles;
+    [SerializeField] private ParticleSystem crashParticles;
+
     void LevelUpDelay()
     {
-        //Maybe add satisfying sound for level up in future?
         if (!hasCrashed && !hasWon)
         {
             hasWon = true;
@@ -52,6 +54,7 @@ public class CollisionHandler : MonoBehaviour
             audioSource.clip = levelUpSound;
             audioSource.loop = false;
             audioSource.Play();
+            successParticles.Play();
         }
        
 
@@ -70,8 +73,8 @@ public class CollisionHandler : MonoBehaviour
             audioSource.clip = crashSound;
             audioSource.loop = false;
             audioSource.Play();
-            print("playing oof sound");
             //audioSource.PlayOneShot(crashSound);
+            crashParticles.Play();
         }
         
         
@@ -80,11 +83,12 @@ public class CollisionHandler : MonoBehaviour
    
     void loadNextLevel()
     {
-
+        successParticles.Play();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings){
             nextSceneIndex = 0;
+
         }
         SceneManager.LoadScene(nextSceneIndex);
 
