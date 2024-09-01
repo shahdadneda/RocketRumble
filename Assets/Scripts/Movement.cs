@@ -7,6 +7,11 @@ public class Movement : MonoBehaviour
     [SerializeField] float sideThrust = 60f;
     [SerializeField] float mainThrust = 100f;
     [SerializeField] AudioClip engineSound;
+        //Particles for engines
+    [SerializeField] ParticleSystem mainThrustParticle;
+    [SerializeField] ParticleSystem leftParticle;
+    [SerializeField] ParticleSystem rightParticle;
+
     private AudioSource audioSource; 
     Rigidbody rb;
 
@@ -20,12 +25,11 @@ public class Movement : MonoBehaviour
         collisionHandler = GetComponent<CollisionHandler>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // where we call our two movment functions, for side and main
         ProcessThrust();
         ProcessRotation();
-        //print("in movment: has won: " + collisionHandler.hasWon + " has crashed " + collisionHandler.hasCrashed);
 
     }
 
@@ -42,26 +46,61 @@ public class Movement : MonoBehaviour
                 audioSource.clip = engineSound;
                 audioSource.Play();
             }
+            //check if particles arrent playing, then play particle
+            if (!mainThrustParticle.isPlaying)
+            {
+                mainThrustParticle.Play();
+            }
+            
         }
+        //stop everything if space is not being pressed
         else {
             audioSource.Stop();
+            mainThrustParticle.Stop();
         }
 
     }
     
     void ProcessRotation(){
+        //only litsen to everything below if we have not won won or crashed, if we have then return
         if (collisionHandler.hasWon == true || collisionHandler.hasCrashed == true)
         {
             return;
         }
 
+        //what to do when A is being pressed
         if (Input.GetKey(KeyCode.A)){
             ApplyRotation(sideThrust);
+
+            //play right particle thrust if it is not already being played (its not)
+            if (!rightParticle.isPlaying)
+            {
+                rightParticle.Play();
+            }
+
+            // if it is being played, then stop the particles
+            else
+            {
+                rightParticle.Stop();
+                print("right stoping");
+            }
+
         }
 
+        //what to do when d is being pressed
         else if (Input.GetKey(KeyCode.D)){
+            //same thing as 'a' rotation above 
             ApplyRotation(-sideThrust);
-            
+            if (!leftParticle.isPlaying)
+            {
+                leftParticle.Play();
+            }
+            else
+            {
+                leftParticle.Stop();
+                print("left stoping");
+            }
+
         }
     }
     private void ApplyRotation(float rotationThisFrame)

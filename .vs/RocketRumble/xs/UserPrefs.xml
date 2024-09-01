@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{26B6E4DC-273E-6ABF-3BF0-4AEC08A5F16E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CollisionHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Movement.cs">
     <Files>
-      <File FileName="Assets/Scripts/Movement.cs" Line="33" Column="68" />
-      <File FileName="Assets/Scripts/CollisionHandler.cs" Line="67" Column="31" />
+      <File FileName="Assets/Scripts/Movement.cs" Line="52" Column="15" />
+      <File FileName="Assets/Scripts/CollisionHandler.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,25 +10,17 @@
           <Node name="RocketRumble" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="CollisionHandler.cs" selected="True" />
+                <Node name="Movement.cs" selected="True" />
               </Node>
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="Unity" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="04c8f4c9-16de-4b8e-a3a0-1a322c08729a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="02596b5f-65d9-4120-b4b7-4d4373a87704" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
