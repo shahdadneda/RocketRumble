@@ -5,18 +5,48 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    float deathDelayTime = 1f;
+    float levelDelayTime = 1.5f;
+    public bool hasCrashed = false;
+    public bool hasWon = false;
+    public bool crashingDisabled = false;
+
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip crashSound;
+    [SerializeField] private AudioClip levelUpSound;
+
+    [SerializeField] private ParticleSystem successParticles;
+    [SerializeField] private ParticleSystem crashParticles;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
-        //print("in collisison handler: has won: " + hasWon + " has crashed " + hasCrashed);
+        RespondToDebugKeys();
+    }
 
+    void RespondToDebugKeys()
+    {
+        if (Input.GetKey(KeyCode.L))
+        {
+            loadNextLevel();
+        }
+
+        else if (Input.GetKey(KeyCode.C))
+        {
+
+            crashingDisabled = !crashingDisabled;
+            print("C has be clicked!");
+
+            //hasCrashed = false;
+            //CancelInvoke("ReloadLevel");
+        }
     }
     void OnCollisionEnter(Collision other)
     {
-        
+        if (crashingDisabled) { return; }
         switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -32,17 +62,9 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
-    float deathDelayTime = 1f;
-    float levelDelayTime = 1.5f;
-    public bool hasCrashed = false;
-    public bool hasWon = false;
-    private AudioSource audioSource; 
-    [SerializeField] private AudioClip crashSound;
-    [SerializeField] private AudioClip levelUpSound;
+    
 
-    [SerializeField] private ParticleSystem successParticles;
-    [SerializeField] private ParticleSystem crashParticles;
-
+ 
     void LevelUpDelay()
     {
         if (!hasCrashed && !hasWon)
@@ -91,7 +113,6 @@ public class CollisionHandler : MonoBehaviour
 
         }
         SceneManager.LoadScene(nextSceneIndex);
-
     }
 
     void ReloadLevel()
