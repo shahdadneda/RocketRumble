@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{26B6E4DC-273E-6ABF-3BF0-4AEC08A5F16E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Movement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Oscillator.cs">
     <Files>
-      <File FileName="Assets/Scripts/Movement.cs" Line="52" Column="15" />
-      <File FileName="Assets/Scripts/CollisionHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Movement.cs" Line="76" Column="52" />
+      <File FileName="Assets/Scripts/CollisionHandler.cs" Line="115" Column="10" />
+      <File FileName="Assets/Scripts/Oscillator.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +11,7 @@
           <Node name="RocketRumble" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Movement.cs" selected="True" />
+                <Node name="Oscillator.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -20,7 +21,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="02596b5f-65d9-4120-b4b7-4d4373a87704" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="398f83ff-2eed-43e1-8f8e-9f0078882ac8" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

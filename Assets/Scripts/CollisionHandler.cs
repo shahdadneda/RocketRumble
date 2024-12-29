@@ -43,6 +43,7 @@ public class CollisionHandler : MonoBehaviour
             //hasCrashed = false;
             //CancelInvoke("ReloadLevel");
         }
+
     }
     void OnCollisionEnter(Collision other)
     {
