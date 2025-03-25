@@ -16,9 +16,6 @@ public class QuitApplication : MonoBehaviour
             // Quit the application
             Application.Quit();
 
-
-
-
         }
     }
 }

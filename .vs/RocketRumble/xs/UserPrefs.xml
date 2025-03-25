@@ -3,8 +3,9 @@
     <Files>
       <File FileName="Assets/Scripts/Movement.cs" Line="76" Column="52" />
       <File FileName="Assets/Scripts/CollisionHandler.cs" Line="115" Column="10" />
-      <File FileName="Assets/Scripts/Oscillator.cs" Line="36" Column="2" />
-      <File FileName="Assets/Scripts/QuitApplication.cs" Line="11" Column="6" />
+      <File FileName="Assets/Scripts/Oscillator.cs" Line="27" Column="1" />
+      <File FileName="Assets/Scripts/QuitApplication.cs" Line="22" Column="1" />
+      <File FileName="Assets/Scripts/MainMenuController.cs" Line="13" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
