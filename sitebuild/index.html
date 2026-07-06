@@ -2,6 +2,13 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
+    <script>
+      // Unity WebGL needs a keyboard — send phones/tablets away before the build loads
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ||
+          (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1)) {
+        location.replace("/desktop-only.html?game=Rocket%20Rumble");
+      }
+    </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | RocketRumble</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
